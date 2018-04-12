@@ -58,9 +58,8 @@ namespace RhymeBot
                 }
                 else
                 {
-
+                    await turnContext.SendActivity(await getRhyme(turnContext.Activity.Text));
                 }
-                await turnContext.SendActivity(await getRhyme(turnContext.Activity.Text));
             }
             else
             {
