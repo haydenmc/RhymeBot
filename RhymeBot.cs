@@ -52,6 +52,14 @@ namespace RhymeBot
             // When the user sends text
             else if (turnContext.Activity.Type == ActivityTypes.Message)
             {
+                if (turnContext.Activity.Text == null || turnContext.Activity.Text.Length <= 0)
+                {
+                    await turnContext.SendActivity("Hi! Give me something to rhyme!");
+                }
+                else
+                {
+
+                }
                 await turnContext.SendActivity(await getRhyme(turnContext.Activity.Text));
             }
             else
