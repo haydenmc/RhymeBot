@@ -11,7 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
-namespace BotBuilderBot
+namespace RhymeBot
 {
     public class Startup
     {
@@ -31,7 +31,7 @@ namespace BotBuilderBot
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton(_ => Configuration);
-            services.AddBot<HelloBot>(options =>
+            services.AddBot<RhymeBot>(options =>
             {
                 options.CredentialProvider = new ConfigurationCredentialProvider(Configuration);
             });
