@@ -54,6 +54,10 @@ namespace RhymeBot
             {
                 await turnContext.SendActivity(await getRhyme(turnContext.Activity.Text));
             }
+            else
+            {
+                await turnContext.SendActivity("Test!");
+            }
         }
 
         private async Task<string> getRhyme(string input)
