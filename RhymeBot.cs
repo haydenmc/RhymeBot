@@ -47,18 +47,19 @@ namespace RhymeBot
             // Initial prompt
             if (turnContext.Activity.Type == ActivityTypes.Invoke)
             {
-                await turnContext.SendActivity("Hello! What would you like rhymed?");
+                await turnContext.SendActivity("Hello! What would you like rhymed?", "Hello! What would you like rhymed?");
             }
             // When the user sends text
             else if (turnContext.Activity.Type == ActivityTypes.Message)
             {
                 if (turnContext.Activity.Text == null || turnContext.Activity.Text.Length <= 0)
                 {
-                    await turnContext.SendActivity("Hi! Give me something to rhyme!");
+                    await turnContext.SendActivity("Hi! Give me something to rhyme!", "Hi! Give me something to rhyme!");
                 }
                 else
                 {
-                    await turnContext.SendActivity(await getRhyme(turnContext.Activity.Text));
+                    var rhyme = await getRhyme(turnContext.Activity.Text);
+                    await turnContext.SendActivity(rhyme, rhyme);
                 }
             }
             else
